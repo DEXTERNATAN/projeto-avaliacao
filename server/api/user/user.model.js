@@ -4,12 +4,14 @@ var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 module.exports = function(sequelize, DataTypes) {
-
+  console.log('MODELO');
   var User = sequelize.define("User", {
     username: DataTypes.STRING,
     email   : { type: DataTypes.STRING, allowNull: false, unique: true },
     role    : { type: DataTypes.STRING, defaultValue: 'user' },
-    descricao: { type: DataTypes.STRING, defaultValue: 'Tiago' }
+    salt    : { type: DataTypes.STRING }
+    //google  : {},
+    //github  : {} 
   }, {
     classMethods: {
       associate: function(models) {
@@ -17,6 +19,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+
+  console.log(User);
 
   return User;
 };

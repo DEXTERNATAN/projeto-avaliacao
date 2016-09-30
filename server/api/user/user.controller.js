@@ -9,8 +9,8 @@ var validationError = function(res, err) {
 };
 
 function User(req){
-  console.log(req.app);
-  //return req.app.get('models').User;
+  console.log('req: ', req);
+  return req.app.get('models').User;
 }
 /**
  * Get list of users
@@ -28,7 +28,7 @@ exports.index = function(req, res) {
  * Creates a new user
  */
 exports.create = function (req, res, next) {
-  console.log('Teste');
+  console.log('Teste: ', req.body);
   var newUser = new User(req.body);
   newUser.provider = 'local';
   newUser.role = 'user';

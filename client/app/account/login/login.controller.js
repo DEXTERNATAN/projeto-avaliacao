@@ -1,9 +1,14 @@
 'use strict';
 
 angular.module('prjAvalicao05App')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $window, User) {
     $scope.user = {};
     $scope.errors = {};
+    
+    // Use the User $resource to fetch all users
+    // $scope.users = User.query();
+
+    // console.log('User: ', User, $scope.users);
 
     $scope.login = function(form) {
       $scope.submitted = true;
